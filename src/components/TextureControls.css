@@ -1,0 +1,56 @@
+.texture-controls {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.texture-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.texture-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.texture-btn:hover {
+  transform: scale(1.1);
+  border-color: orange;
+  box-shadow: none;
+}
+
+
+.texture-btn.active {
+  border-color: orange;
+  box-shadow: none;
+  transform: scale(1.05);
+}
+
+
+/* Removed blue lighting/gradient overlay */
+
+@media (max-width: 768px) {
+  .texture-buttons {
+    gap: 10px;
+  }
+  
+  .texture-btn {
+    width: 50px;
+    height: 50px;
+  }
+}

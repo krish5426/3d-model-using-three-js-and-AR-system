@@ -1,0 +1,128 @@
+/* src/components/ModelSelector.css */
+.model-selector {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(0, 0, 0, 0);
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.model-selector-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.model-selector-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.model-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.model-options.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 images per row */
+  gap: 16px;
+}
+
+.model-option {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: none;
+  border: none;
+  background: white;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.model-option:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.model-option.active {
+  border: none;
+  box-shadow: none;
+}
+
+/* Use orange border when the card is focused or pressed (remove any blue) */
+.model-option:focus,
+.model-option:active {
+  border: none;
+}
+
+/* When focused via keyboard, use orange highlight instead of default blue */
+.model-option:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+.model-option:focus-visible .model-name {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.model-image {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  background: #f2f2f2; /* neutral base; overwritten when active */
+}
+
+.model-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.model-option:hover .model-image img {
+  transform: scale(1.05);
+}
+
+/* Make the top image area orange when active (replace the blue area in screenshot) */
+.model-option.active .model-image {
+  background: #f2f2f2;
+}
+
+.model-name {
+  padding: 15px;
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+  background: #f8f9fa;
+}
+
+.model-option.active .model-name {
+  background: #f8f9fa;
+  color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .model-selector {
+    width: 250px;
+  }
+  
+  .model-image {
+    height: 100px;
+  }
+}
